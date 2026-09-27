@@ -140,6 +140,12 @@ diff_calibration_file: ~/printer_data/config/box-diff-calibration.json</code></p
         <li><strong>Tube:</strong> after changing or re-routing the tube, recalibrating the buffer, or changing the firmware.</li>
       </ul>
       <p>The unit discards a saved tube length by itself when the buffer calibration file or the firmware&#39;s settings change. It cannot notice a new tube.</p>
+
+      <h3 id="rotation" data-station="per-lane rotation distance">Per-lane rotation distance</h3>
+      <p>Every lane&#39;s drive gear is assumed identical, but real gears vary a little from wear or printed-part tolerance. If one lane consistently over- or under-feeds, calibrate lane 0 first, then check each other lane against it with <code>SAVE=0</code> so it does not disturb lane 0&#39;s saved tube length (they share one measurement), and adjust that lane&#39;s own <code>feeder_rotation_distances</code> entry:</p>
+      <pre><code class="language-gcode">KLIPPER_MMU_CALIBRATE MMU=box BAY=0
+KLIPPER_MMU_CALIBRATE MMU=box BAY=1 SAVE=0</code></pre>
+      <p>The second command's report names the suggested new rotation distance for lane 1. Put it in <code>feeder_rotation_distances</code> (millimetres, one per lane, blank entries keep the firmware&#39;s own default), restart Klipper, and calibrate lane 0 again to check the whole path is still within its arrival window.</p>
     </section>
 
     <section id="selectors" data-lane="4" data-station="selector gates">

@@ -97,7 +97,7 @@
 
     <section id="no-bay" data-lane="4" data-station="units without BAY">
       <h2>Units without a BAY switch</h2>
-      <p>Angry Beaver, 3MS and QuattroBox cannot see whether a lane has filament. They follow Happy Hare&#39;s rule: each gate is <em>unknown</em>, <em>available</em> or <em>empty</em>. An unknown gate is tried. A load that succeeds marks it available; a load that finds no filament marks it empty. You can set it yourself with <code>KLIPPER_MMU_SET_GATE_METADATA GATE=n AVAILABLE=0|1</code>.</p>
+      <p>Angry Beaver, 3MS and QuattroBox cannot see whether a lane has filament. They follow Happy Hare&#39;s rule: each gate is <em>unknown</em>, <em>available</em> or <em>empty</em>. An unknown gate is tried. A load that succeeds marks it available; a load that finds no filament marks it empty. You can set it yourself with <code>KLIPPER_MMU_SET_GATE_METADATA GATE=n AVAILABLE=0|1</code>. EJECT backs the lane out by a set distance (20&nbsp;mm; 1500&nbsp;mm on 3MS) and marks the gate empty, as Happy Hare does.</p>
     </section>
 
     <section id="chips" data-lane="1" data-station="chips">
